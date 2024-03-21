@@ -1,7 +1,10 @@
-# go-ecobee
+# go-ecobee-kube
 
-A go library and simple tools for accessing the
-[Ecobee Thermostat API](https://www.ecobee.com/home/developer/api/documentation/v1/index.shtml).
+A go library and simple tools for accessing the [Ecobee Thermostat
+API](https://www.ecobee.com/home/developer/api/documentation/v1/index.shtml).
+This repo is a fork of [go-ecobee](https://github.com/rspier/go-ecobee) which
+stores the ecobee oauth2 token in a Kubernetes secret, rather than in a file on
+disk.
 
 The go-ecobee CLI is built with the underlying go-ecobee API, and
 serves as it's primary example.
@@ -10,13 +13,13 @@ serves as it's primary example.
 
 ### Install
 
-```
+```shell
 go install -u github.com/rspier/go-ecobee`
 ```
 
 ### Build
 
-```
+```shell
 go build main.go
 
 # fully static binary
@@ -25,10 +28,13 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main
 
 ### Application ID
 
-[Enable your developer dashboard](https://www.ecobee.com/home/developer/loginDeveloper.jsp), if you have not already.
+[Enable your developer
+dashboard](https://www.ecobee.com/home/developer/loginDeveloper.jsp), if you
+have not already.
 
 Create an Ecobee API Application ID (API key) by going to the
-[consumer portal](https://www.ecobee.com/consumerportal/index.html), clicking the "Developer" option in the menu, and clicking the "Create New" button.
+[consumer portal](https://www.ecobee.com/consumerportal/index.html), clicking
+the "Developer" option in the menu, and clicking the "Create New" button.
 
 You probably want to use the `ecobee PIN` authorization method for non-web based
 tools.
